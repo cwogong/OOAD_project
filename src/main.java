@@ -61,11 +61,7 @@ public class main {
                     System.out.print("로그인을 먼저 해 주세요");
                     continue;
                 }
-<<<<<<< HEAD
                 currentUser.viewFavoriteList();
-=======
-                //currentUser.viewList();
->>>>>>> b6b9eda81b8420d606801001154bf259bcf294f6
             }
 
             // Use Case 8 : 맛집 리스트 등록
