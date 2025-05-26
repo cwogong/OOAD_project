@@ -6,6 +6,7 @@ public class main {
         User currentUser = null;
 
         UserList userList = new UserList();
+        RestaurantList restaurantList = new RestaurantList();
 
         while (true) {
             String type;
@@ -37,8 +38,6 @@ public class main {
 
             // Use Case 3 : 내 정보 관리
 
-            // Use Case 4 : 별점, 리뷰 작성
-
             // Use Case 5, 6 : 검색하기, 필터 적용
 
             // Use Case 7 : 맛집 리스트 보기
@@ -49,6 +48,33 @@ public class main {
                 }
                 
             }
+
+            // Use Case 8 : 맛집 리스트 등록
+
+            // Use Case 9, 12, 4 : 식당 정보 보기 + 별점, 리뷰 보기 -> 별점, 리뷰 작성
+            else if (type.equals("view")) {
+                if (currentUser == null) {
+                    System.out.print("로그인을 먼저 해 주세요");
+                    continue;
+                }
+
+                System.out.print("식당 이름 입력 : ");
+                String rest = scanner.nextLine();
+
+                Restaurant restaurant = restaurantList.findRestaurant(rest);
+                if (restaurant != null) {
+                    // 식당 발견
+                    restaurant.viewInfo();
+                }
+                else {
+                    // 식당 존재 X
+                    System.out.print("없는 식당입니다.");
+                }
+            }
+
+            // Use Case 10 : 식당 업체 등록
+
+            // Use Case 11 : 식당 정보 수정 & 삭제
 
             // Case : 
             else if (true) {

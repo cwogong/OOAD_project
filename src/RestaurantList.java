@@ -27,4 +27,13 @@ public class RestaurantList {
             }
         }
     }
+
+    public Restaurant findRestaurant(String rest) {
+        for (Restaurant restaurant : this.restaurantList) {
+            if (restaurant.getName().equals(rest)) {
+                return restaurant;
+            }
+        }
+        return null;
+    }
 }

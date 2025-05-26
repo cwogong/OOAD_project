@@ -51,5 +51,7 @@ public class Restaurant {
         menuList.add(m);
     }
 
-
+    public String getName() {
+        return this.name;
+    }
 }
