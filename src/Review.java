@@ -9,4 +9,9 @@ public class Review {
         this.starRating = starRating;
         this.review = review;
     }
+
+    // 별점 입력
+    public void setRating(float rating) {
+        this.starRating = rating;
+    }
 }

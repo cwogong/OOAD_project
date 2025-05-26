@@ -8,6 +8,16 @@ public class main {
         UserList userList = new UserList();
         RestaurantList restaurantList = new RestaurantList();
 
+
+        /*      임의의 식당 삽입         */
+
+        Restaurant rest1 = new Restaurant("맛집1", "서울시 성북구", "02-1111-1111", "한식");
+        Restaurant rest2 = new Restaurant("맛집2", "서울시 동대문구", "02-2222-2222", "중식");
+        RestaurantList.addRestaurant(rest1);
+        RestaurantList.addRestaurant(rest2);
+
+        /*      임의의 식당 십입        */
+
         while (true) {
             String type;
 
@@ -52,7 +62,7 @@ public class main {
                     System.out.print("로그인을 먼저 해 주세요");
                     continue;
                 }
-                currentUser.viewList();
+                //currentUser.viewList();
             }
 
             // Use Case 8 : 맛집 리스트 등록
@@ -74,7 +84,7 @@ public class main {
                 }
                 else {
                     // 식당 존재 X
-                    System.out.print("없는 식당입니다.");
+                    System.out.print("없는 식당입니다.\n");
                 }
             }
 

@@ -7,7 +7,7 @@ public class RestaurantList {
     // 식당 리스트 생성
     private ArrayList<Restaurant> restaurantList = new ArrayList<>();
     
-    public void add(Restaurant r) {    
+    public void addRestaurant(Restaurant r) {    
         // 식당추가기능
         restaurantList.add(r);
     }
