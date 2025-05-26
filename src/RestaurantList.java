@@ -20,8 +20,9 @@ public class RestaurantList {
         // 리스트 보기
         if(restaurantList.isEmpty()){
             System.out.println("등록된 식당이 없습니다.");
-        }else{
-            for(Restaurant r: restaurantList){
+        }
+        else{
+            for(Restaurant r: this.restaurantList){
                 r.viewInfo();
                 System.out.println("\n");
             }

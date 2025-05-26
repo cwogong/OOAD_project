@@ -10,12 +10,11 @@ public class main {
 
 
         /*      임의의 식당 삽입         */
-
-        Restaurant rest1 = new Restaurant("맛집1", "서울시 성북구", "02-1111-1111", "한식");
-        Restaurant rest2 = new Restaurant("맛집2", "서울시 동대문구", "02-2222-2222", "중식");
-        RestaurantList.addRestaurant(rest1);
-        RestaurantList.addRestaurant(rest2);
-
+        
+        restaurantList.addRestaurant(new Restaurant("rest1", "서울시 성북구", "02-1111-1111", "한식"));
+        restaurantList.addRestaurant(new Restaurant("rest2", "서울시 동대문구", "02-2222-2222", "중식"));
+        restaurantList.addRestaurant(new Restaurant("rest3", "서울시 성동구", "02-3333-3333", "일식"));
+        
         /*      임의의 식당 십입        */
 
         while (true) {
@@ -69,18 +68,19 @@ public class main {
 
             // Use Case 9, 12, 4 : 식당 정보 보기 + 별점, 리뷰 보기 -> 별점, 리뷰 작성
             else if (type.equals("view")) {
-                if (currentUser == null) {
-                    System.out.print("로그인을 먼저 해 주세요");
-                    continue;
-                }
+
+                // if (currentUser == null) {
+                //     System.out.print("로그인을 먼저 해 주세요");
+                //     continue;
+                // }
 
                 System.out.print("식당 이름 입력 : ");
                 String rest = scanner.nextLine();
 
-                Restaurant restaurant = restaurantList.findRestaurant(rest);
-                if (restaurant != null) {
+                Restaurant currRestaurant = restaurantList.findRestaurant(rest);
+                if (currRestaurant != null) {
                     // 식당 발견
-                    restaurant.viewInfo();
+                    currRestaurant.viewInfo();
                 }
                 else {
                     // 식당 존재 X
