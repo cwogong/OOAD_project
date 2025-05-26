@@ -6,7 +6,7 @@ import java.util.*;
 // 삽입, 삭제(RES ID 필요), 수정(필요한가?), 조회
 public class FavoriteList {                                            
     // 맛집집 리스트 생성
-    private ArrayList<Restaurant> favoriteList = new ArrayList<>();
+    public ArrayList<Restaurant> favoriteList = new ArrayList<>();
     
     public void add(Restaurant r) {    
         // 맛집집추가기능

@@ -54,4 +54,8 @@ public class Restaurant {
     public String getName() {
         return this.name;
     }
+    
+    public String getCategory() {
+        return this.category;
+    }
 }

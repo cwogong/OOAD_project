@@ -1,6 +1,4 @@
 
-import java.io.*;
-import java.util.*;
 
 
 public class ClientUser extends User { //user 클래스를 상속받는 client user 클래스
@@ -8,14 +6,19 @@ public class ClientUser extends User { //user 클래스를 상속받는 client u
 
     public String nickname; // 사용자의 닉네임
     public int age; // 사용자의 나이
-    public ArrayList<Restaurant> favoriteList;
+    public FavoriteList favoriteList;
 
 	
     public ClientUser(String userID, String userPW, String address, String nickname, int age) { //생성자
     	super(userID, userPW, address);
     	this.nickname = nickname;
     	this.age = age;
-    	this.favoriteList = new ArrayList<>();
+        this.favoriteList = new FavoriteList();
+    }
+
+    public ClientUser(String userID, String userPW, String address) { //생성자
+    	super(userID, userPW, address);
+        this.favoriteList = new FavoriteList();
     }
 
     // Getter
@@ -40,41 +43,42 @@ public class ClientUser extends User { //user 클래스를 상속받는 client u
         return review;
     }
 
-    public Review editReview(Review review, float newStar, String newContent) { // 리뷰 수정
-        review.setStarRating(newStar);
-        review.setReview(newContent);
+    public void editReview(Review review, float newStar, String newContent) { // 리뷰 수정
+        // review.setStarRating(newStar);
+        // review.setReview(newContent);
         System.out.println("리뷰 수정 완료");
     }
 
 
-    public void search(String keyword, ArrayList<Restaurant> allRestaurants) { // 맛집 검색
+    public RestaurantList search(String keyword, RestaurantList allRestaurants) { // 맛집 검색
     	 System.out.println("🔍 검색 결과:");
-    	 ArrayList<Restaurant> searchRestaurant = new ArrayList<>();
-    	 for(Restaurant r : allRestaurants) { // allRestaurants 리스트의 Restaurant 객체들을 하나하나 가져와서 for문을 돌린다
+    	 RestaurantList searchRestaurant = new RestaurantList();
+    	 for(Restaurant r : allRestaurants.restaurantList) { // allRestaurants 리스트의 Restaurant 객체들을 하나하나 가져와서 for문을 돌린다
     		 if(r.getName().contains(keyword)){ // Restaurant 객체 r의 이름을 가져와 키워드가 포함되어 있는지 검사
-    			 searchRestaurant.add(r); //참이면 r을 리스트에 추가후 리턴
+    			 searchRestaurant.addRestaurant(r); //참이면 r을 리스트에 추가후 리턴
     			 return searchRestaurant;
     		 }
     	 }
+         return null;
     }
 
- 
-    public void fliter(String category, ArrayList<Restaurant> allRestaurants) { // 필터
-    	ArrayList<Restaurant> categoryRestaurant = new ArrayList<>();
-    	for(Restaurant r : allRestaurants) { // allRestaurants 리스트의 Restaurant 객체들을 하나하나 가져와서 for문을 돌린다
+    public RestaurantList fliter(String category, RestaurantList allRestaurants) { // 필터
+    	RestaurantList categoryRestaurant = new RestaurantList();
+    	for(Restaurant r : allRestaurants.restaurantList) { // allRestaurants 리스트의 Restaurant 객체들을 하나하나 가져와서 for문을 돌린다
     		if(r.getCategory().equals(category)){ // Restaurant 객체 r의 카테고리를 가져와 카테고리가 일치하는지 검사
-    			categoryRestaurant.add(r); // 참이면 식당의 이름 가져와서 리턴
+    			categoryRestaurant.addRestaurant(r); // 참이면 식당의 이름 가져와서 리턴
     			return categoryRestaurant;
     		}
     	}
+        return null;
     }
 
 
 
     public void viewFavoriteList() { // 즐겨찾기 보기
     	System.out.println("즐겨찾기 보기");
-    	for(Restaurant r : favoriteList) {
-    		System.out.println(r.getName(););
+    	for (Restaurant r : this.favoriteList.favoriteList) {
+    		System.out.println(r.getName());
     	}
     }
 

@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        User currentUser = null;
+        ClientUser currentUser = null;
 
-        UserList userList = new UserList();
+        ClientUserList userList = new ClientUserList();
         RestaurantList restaurantList = new RestaurantList();
 
 
@@ -15,7 +15,11 @@ public class main {
         restaurantList.addRestaurant(new Restaurant("rest2", "서울시 동대문구", "02-2222-2222", "중식"));
         restaurantList.addRestaurant(new Restaurant("rest3", "서울시 성동구", "02-3333-3333", "일식"));
         
-        /*      임의의 식당 십입        */
+        /*      임의의 식당 삽입        */
+
+        /*      임의의 회원 삽입        */
+
+        userList.appendUser(new ClientUser("1111", "1111", "서울시"));
 
         while (true) {
             String type;
@@ -57,14 +61,18 @@ public class main {
 
             // Use Case 7 : 맛집 리스트 보기
             else if (type.equals("viewList")) {
-                if (currentUser == null) {
-                    System.out.print("로그인을 먼저 해 주세요");
-                    continue;
-                }
+                // if (currentUser == null) {
+                //     System.out.print("로그인을 먼저 해 주세요");
+                //     continue;
+                // }
                 currentUser.viewFavoriteList();
             }
 
             // Use Case 8 : 맛집 리스트 등록
+            else if (type.equals("8")) {
+                currentUser.addRestaurant(restaurantList.findRestaurant("rest1"));
+                //currentUser.viewFavoriteList();
+            }
 
             // Use Case 9, 12, 4 : 식당 정보 보기 + 별점, 리뷰 보기 -> 별점, 리뷰 작성
             else if (type.equals("view")) {
