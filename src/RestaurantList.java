@@ -7,7 +7,7 @@ public class RestaurantList {
     // 식당 리스트 생성
     private ArrayList<Restaurant> restaurantList = new ArrayList<>();
     
-    public void add(Restaurant r) {    
+    public void addRestaurant(Restaurant r) {    
         // 식당추가기능
         restaurantList.add(r);
     }
@@ -20,8 +20,9 @@ public class RestaurantList {
         // 리스트 보기
         if(restaurantList.isEmpty()){
             System.out.println("등록된 식당이 없습니다.");
-        }else{
-            for(Restaurant r: restaurantList){
+        }
+        else{
+            for(Restaurant r: this.restaurantList){
                 r.viewInfo();
                 System.out.println("\n");
             }

@@ -12,7 +12,7 @@ public class ClientUser extends User { //user 클래스를 상속받는 client u
 
 	
     public ClientUser(String userID, String userPW, String address, String nickname, int age) { //생성자
-    	super.(userID, userPW, address);
+    	super(userID, userPW, address);
     	this.nickname = nickname;
     	this.age = age;
     	this.favoriteList = new ArrayList<>();

@@ -8,6 +8,15 @@ public class main {
         UserList userList = new UserList();
         RestaurantList restaurantList = new RestaurantList();
 
+
+        /*      임의의 식당 삽입         */
+        
+        restaurantList.addRestaurant(new Restaurant("rest1", "서울시 성북구", "02-1111-1111", "한식"));
+        restaurantList.addRestaurant(new Restaurant("rest2", "서울시 동대문구", "02-2222-2222", "중식"));
+        restaurantList.addRestaurant(new Restaurant("rest3", "서울시 성동구", "02-3333-3333", "일식"));
+        
+        /*      임의의 식당 십입        */
+
         while (true) {
             String type;
 
@@ -52,29 +61,34 @@ public class main {
                     System.out.print("로그인을 먼저 해 주세요");
                     continue;
                 }
+<<<<<<< HEAD
                 currentUser.viewFavoriteList();
+=======
+                //currentUser.viewList();
+>>>>>>> b6b9eda81b8420d606801001154bf259bcf294f6
             }
 
             // Use Case 8 : 맛집 리스트 등록
 
             // Use Case 9, 12, 4 : 식당 정보 보기 + 별점, 리뷰 보기 -> 별점, 리뷰 작성
             else if (type.equals("view")) {
-                if (currentUser == null) {
-                    System.out.print("로그인을 먼저 해 주세요");
-                    continue;
-                }
+
+                // if (currentUser == null) {
+                //     System.out.print("로그인을 먼저 해 주세요");
+                //     continue;
+                // }
 
                 System.out.print("식당 이름 입력 : ");
                 String rest = scanner.nextLine();
 
-                Restaurant restaurant = restaurantList.findRestaurant(rest);
-                if (restaurant != null) {
+                Restaurant currRestaurant = restaurantList.findRestaurant(rest);
+                if (currRestaurant != null) {
                     // 식당 발견
-                    restaurant.viewInfo();
+                    currRestaurant.viewInfo();
                 }
                 else {
                     // 식당 존재 X
-                    System.out.print("없는 식당입니다.");
+                    System.out.print("없는 식당입니다.\n");
                 }
             }
 
