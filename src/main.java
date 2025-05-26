@@ -36,14 +36,15 @@ public class main {
                 System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다.");
             }
 
+            // 로그아웃
             else if (type.equals("logout")) {
                 currentUser = null;
                 System.out.print("로그아웃 되었습니다.");
             }
 
-            // Use Case 3 : 내 정보 관리
+            // Use Case 3 : 내 정보 관리 -> 추후 구현 예정
 
-            // Use Case 5, 6 : 검색하기, 필터 적용
+            // Use Case 5, 6 : 검색하기, 필터 적용 -> 추후 구현 예정
 
             // Use Case 7 : 맛집 리스트 보기
             else if (type.equals("viewList")) {
@@ -51,7 +52,7 @@ public class main {
                     System.out.print("로그인을 먼저 해 주세요");
                     continue;
                 }
-                
+                currentUser.viewList();
             }
 
             // Use Case 8 : 맛집 리스트 등록
