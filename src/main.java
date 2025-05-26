@@ -36,6 +36,11 @@ public class main {
                 System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다.");
             }
 
+            else if (type.equals("logout")) {
+                currentUser = null;
+                System.out.print("로그아웃 되었습니다.");
+            }
+
             // Use Case 3 : 내 정보 관리
 
             // Use Case 5, 6 : 검색하기, 필터 적용
