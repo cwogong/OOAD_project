@@ -73,13 +73,13 @@ public class ClientUser extends User { //user 클래스를 상속받는 client u
 
     public void viewFavoriteList() { // 즐겨찾기 보기
     	System.out.println("즐겨찾기 보기");
-    	for(Restaurant r : favoritelList) {
+    	for(Restaurant r : favoriteList) {
     		System.out.println(r.getName(););
     	}
     }
 
 
-    public void addRestaurent(Restaurant r) { // 즐겨찾기에 담기
+    public void addRestaurant(Restaurant r) { // 즐겨찾기에 담기
     	favoriteList.add(r);
     	System.out.println(r.getName() + "이(가) 즐겨찾기에 추가되었습니다.");
     }
