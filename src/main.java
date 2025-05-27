@@ -89,12 +89,20 @@ public class main {
                 if (currRestaurant != null) {
                     // 식당 발견
                     currRestaurant.viewInfo();
+                    System.out.println("식당의 별점과 리뷰도 확인하시겠습니까? : (Y/N)");
+                    String answer = scanner.nextLine();
+                    if(answer == "Y"){
+                        currRestaurant.viewReview();
+                    }
                 }
                 else {
                     // 식당 존재 X
                     System.out.print("없는 식당입니다.\n");
                 }
             }
+
+            
+
 
             // Use Case 10 : 식당 업체 등록
 

@@ -2,15 +2,15 @@ import java.util.*;
 
 public class Restaurant {
 
-    private ArrayList<Menu> menuList;
-    private ArrayList<Review> reviews;
+    private ArrayList<Menu> menuList; //메뉴들 리스트
+    private ArrayList<Review> reviews; //리뷰들 리스트
 
     public String name;
     public String address;
     public String phoneNumber;
     public String category;
 
-    public Restaurant(String name, String address, String phoneNumber, String category) {
+    public Restaurant(String name, String address, String phoneNumber, String category) { //생성자
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
@@ -21,7 +21,7 @@ public class Restaurant {
     }
     
     
-    public void viewInfo() {
+    public void viewInfo() { //식당의 정보 보기 메소드
         System.out.println("식당이름: "+ name);
         System.out.println("주소: "+ address);
         System.out.println("전화번호: "+ phoneNumber);
@@ -37,7 +37,9 @@ public class Restaurant {
         }
     }
 
-    public void viewReview() {
+
+
+    public void viewReview() { //식당리뷰들 보기 메소드
         if (reviews.isEmpty()) {
             System.out.println("리뷰가 없습니다.");
         }else{
