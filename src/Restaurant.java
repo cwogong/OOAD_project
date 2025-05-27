@@ -44,11 +44,11 @@ public class Restaurant {
 
         System.out.println("\n---------- 리뷰 -----------\n");
 
-        if (reviews.isEmpty()) { //reviews리스트가 비어있어서 리뷰가 없을때
+        if (reviews.isEmpty()) {        //reviews 가 비어있어서 리뷰가 없을때
             System.out.println("리뷰가 없습니다.");
-        }else{ //리뷰리스트를 순회하며 식당에 대한 리뷰들 출력/ 별점, 리뷰 순서로
+        }else{                          //reviews 를 순회하며 별점, 리뷰 출력
             for(int i=0; i<reviews.size(); i++){
-                System.out.println("별점: " + reviews.get(i).starRating +" 리뷰: "+ reviews.get(i).review);   /*별점, 리뷰 출력 */
+                System.out.println("별점: " + reviews.get(i).starRating +", 리뷰: "+ reviews.get(i).review);   /*별점, 리뷰 출력 */
             }
         }
 

@@ -35,8 +35,8 @@ public class main {
         /*      임의의 회원 삽입        */
         /////////////////////////////////
 
-        userList.appendUser(new ClientUser("1111", "1111", "서울시"));
-        userList.appendUser(new ClientUser("2222", "2222", "서울시"));
+        userList.appendUser(new ClientUser("1111", "1111", "서울시 성북구"));
+        userList.appendUser(new ClientUser("2222", "2222", "서울시 중구"));
 
         /////////////////////////////////
         /*      임의의 회원 삽입        */
@@ -130,7 +130,7 @@ public class main {
                         // 리뷰 보기
                         currRestaurant.viewReview();
                         
-                        // 리뷰 작성
+                        // Use Case 4 : 별점, 리뷰 작성
                         System.out.print("식당에 리뷰를 작성하시겠습니까?(Y/N) : ");
                         answer = scanner.nextLine();
 
@@ -146,8 +146,7 @@ public class main {
                         }
                     }
 
-                    // 맛집 리스트 등록
-
+                    // Use Case 8 : 맛집 리스트 등록하기
                     System.out.print("내 맛집 리스트에 등록하시겠습니까?(Y/N) : ");
                     answer = scanner.nextLine();
                     
