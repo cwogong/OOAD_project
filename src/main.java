@@ -3,13 +3,15 @@ import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ClientUser currentUser = null;
+        ClientUser currentUser = null;                              // 현재 로그인된 회원
 
-        ClientUserList userList = new ClientUserList();
-        RestaurantList restaurantList = new RestaurantList();
+        ClientUserList userList = new ClientUserList();             // 회원가입된 Client User 들을 담는 Client List 객체
+        RestaurantList restaurantList = new RestaurantList();       // 식당 등록된 Restaurant 들을 담는 Restaurant List 객체
 
-
+        //////////////////////////////////
         /*      임의의 식당 삽입         */
+        //////////////////////////////////
+
         Restaurant rest1 = new Restaurant("rest1", "서울시 성북구", "02-1111-1111", "한식");
         rest1.addMenu(new Menu("비빔밥", 8000));
 
@@ -23,18 +25,25 @@ public class main {
         restaurantList.addRestaurant(rest1);
         restaurantList.addRestaurant(rest2);
         restaurantList.addRestaurant(rest3);
-        
-        /*      임의의 식당 삽입        */
 
+        /////////////////////////////////
+        /*      임의의 식당 삽입        */
+        /////////////////////////////////
+
+        
+        /////////////////////////////////
         /*      임의의 회원 삽입        */
+        /////////////////////////////////
 
         userList.appendUser(new ClientUser("1111", "1111", "서울시"));
         userList.appendUser(new ClientUser("2222", "2222", "서울시"));
 
+        /////////////////////////////////
         /*      임의의 회원 삽입        */
+        /////////////////////////////////
+
 
         // 프로그램 시작
-
         System.out.println("\n---------- 먹픽! ----------\n");
 
         while (true) {
@@ -51,13 +60,10 @@ public class main {
 
             // Use Case 1 : 회원가입
             if (type.equals("sign")) {
-                if (userList.signIn()) {    
-                    // 회원가입 성공
-                    // userList.print();
+                if (userList.signIn()) {        // 회원가입 성공
                     System.out.println("\n---------- 정상적으로 가입되었습니다! ---------\n");
                 } 
-                else {      
-                    // 회원가입 실패
+                else {                          // 회원가입 실패
                     System.out.println("\n---------- 이미 존재하는 아이디입니다. ----------\n");
                 }
 
@@ -66,10 +72,10 @@ public class main {
 
             // Use Case 2 : 로그인
             else if (type.equals("login")) {
-                while (currentUser == null) {
-                    // 로그인 실패, 다시 시도
+                while (currentUser == null) {    // 로그인 실패시 성공할 때까지 계속 로그인 시도
                     currentUser = userList.login();
                 }
+                
                 // 로그인 성공
                 System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다.");
 
