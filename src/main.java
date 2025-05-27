@@ -49,6 +49,8 @@ public class main {
                     // 회원가입 실패
                     System.out.println("이미 존재하는 아이디입니다.");
                 }
+
+                System.out.println("\n----------------------------");
             }
 
             // Use Case 2 : 로그인
@@ -59,12 +61,16 @@ public class main {
                 }
                 // 로그인 성공
                 System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다.");
+
+                System.out.println("\n----------------------------");
             }
 
             // 로그아웃
             else if (type.equals("logout")) {
+                System.out.println("\n----------------------------");
                 currentUser = null;
-                System.out.print("로그아웃 되었습니다.");
+                System.out.println("로그아웃 되었습니다.");
+                System.out.println("\n----------------------------");
             }
 
             // Use Case 3 : 내 정보 관리 -> 추후 구현 예정
@@ -74,29 +80,31 @@ public class main {
             // Use Case 7 : 맛집 리스트 보기
             else if (type.equals("viewList")) {
                 if (currentUser == null) {
-                    System.out.print("로그인을 먼저 해 주세요");
+                    System.out.println("-------- 로그인을 먼저 해 주세요 --------");
                     continue;
                 }
                 currentUser.viewFavoriteList();
             }
 
             // Use Case 8 : 맛집 리스트 등록
-            else if (type.equals("8")) {
+            else if (type.equals("enroll")) {
                 if (currentUser == null) {
-                    System.out.print("로그인을 먼저 해 주세요");
+                    System.out.println("-------- 로그인을 먼저 해 주세요 --------");
                     continue;
                 }
                 currentUser.addRestaurant(restaurantList.findRestaurant("rest1"));
-                //currentUser.viewFavoriteList();
+                currentUser.viewFavoriteList();
+
+                System.out.println("\n----------------------------");
             }
 
             // Use Case 9, 12, 4 : 식당 정보 보기 + 별점, 리뷰 보기 -> 별점, 리뷰 작성
             else if (type.equals("view")) {
 
-                // if (currentUser == null) {
-                //     System.out.print("로그인을 먼저 해 주세요");
-                //     continue;
-                // }
+                if (currentUser == null) {
+                    System.out.println("-------- 로그인을 먼저 해 주세요 --------");
+                    continue;
+                }
 
                 System.out.print("식당 이름 입력 : ");
                 String rest = scanner.nextLine();
