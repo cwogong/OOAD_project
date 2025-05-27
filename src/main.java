@@ -97,7 +97,7 @@ public class main {
                     currRestaurant.viewInfo();
                     System.out.println("식당의 별점과 리뷰도 확인하시겠습니까? : (Y/N)");
                     String answer = scanner.nextLine();
-                    if(answer == "Y"){
+                    if(answer.equals("Y")){
                         currRestaurant.viewReview();
                     }
                 }
