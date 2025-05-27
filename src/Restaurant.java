@@ -52,15 +52,19 @@ public class Restaurant {
             }
         }
 
-        System.out.println("\n--------------------\n");
+        System.out.println("\n----------------------------\n");
     }
 
     public void writeReview() {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("별점을 입력해주세요 : ");
+        System.out.print("별점을 입력해주세요(0 ~ 5) : ");
         float rating = Float.parseFloat(scanner.nextLine());
+        while (rating < 0 || rating > 5) {
+            System.out.print("0에서 5 사이의 값을 입력해주세요 : ");
+            rating = Float.parseFloat(scanner.nextLine());
+        }
 
         System.out.print("리뷰를 작성해주세요 : ");
         String comment = scanner.nextLine();
@@ -68,6 +72,8 @@ public class Restaurant {
 
         Review review = new Review(rating, comment);
         this.reviews.add(review);
+
+        System.out.println("\n----------------------------\n");
     }
 
     public void addMenu(Menu m) {

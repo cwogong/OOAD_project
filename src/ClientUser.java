@@ -76,10 +76,11 @@ public class ClientUser extends User { //user 클래스를 상속받는 client u
 
 
     public void viewFavoriteList() { // 즐겨찾기 보기
-    	System.out.println("즐겨찾기 보기");
+    	System.out.println("\n---------- 내 맛집 리스트 ----------\n");
     	for (Restaurant r : this.favoriteList.favoriteList) {
     		System.out.println(r.getName());
     	}
+        System.out.println("----------------------------");
     }
 
 

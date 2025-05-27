@@ -33,9 +33,19 @@ public class main {
 
         /*      임의의 회원 삽입        */
 
+        // 프로그램 시작
+
+        System.out.println("\n---------- 먹픽! ----------\n");
+
         while (true) {
             String type;
 
+            System.out.println("## 원하는 동작을 입력해주세요 ##\n");
+            System.out.println("- 회원가입 : sign");
+            System.out.println("- 로그인 : login");
+            System.out.println("- 로그아웃 : logout");
+            System.out.println("- 내 맛집 리스트 보기 : viewList");
+            System.out.println("- 식당 정보 보기 : view\n");
             System.out.print("type : ");
             type = scanner.nextLine();
 
@@ -80,25 +90,13 @@ public class main {
             // Use Case 7 : 맛집 리스트 보기
             else if (type.equals("viewList")) {
                 if (currentUser == null) {
-                    System.out.println("-------- 로그인을 먼저 해 주세요 --------");
+                    System.out.println("\n-------- 로그인을 먼저 해 주세요 --------\n");
                     continue;
                 }
                 currentUser.viewFavoriteList();
             }
 
-            // Use Case 8 : 맛집 리스트 등록
-            else if (type.equals("enroll")) {
-                if (currentUser == null) {
-                    System.out.println("-------- 로그인을 먼저 해 주세요 --------");
-                    continue;
-                }
-                currentUser.addRestaurant(restaurantList.findRestaurant("rest1"));
-                currentUser.viewFavoriteList();
-
-                System.out.println("\n----------------------------");
-            }
-
-            // Use Case 9, 12, 4 : 식당 정보 보기 + 별점, 리뷰 보기 -> 별점, 리뷰 작성
+            // Use Case 9, 12, 4 : 식당 정보 보기 + 별점, 리뷰 보기 -> 별점, 리뷰 작성 + Use Case 8 : 맛집 리스트 등록하기
             else if (type.equals("view")) {
 
                 if (currentUser == null) {
@@ -115,12 +113,12 @@ public class main {
                     currRestaurant.viewInfo();
 
                     // 리뷰 보기
-                    System.out.println("식당의 별점과 리뷰도 확인하시겠습니까?(Y/N) : ");
+                    System.out.print("식당의 별점과 리뷰도 확인하시겠습니까?(Y/N) : ");
                     String answer = scanner.nextLine();
                     
                     // Y 또는 N 이외의 답이 들어오는 경우
-                    while (!answer.equals("Y") || !answer.equals("N")) {
-                        System.out.println("Y 또는 N 을 입력해주세요. \n식당의 별점과 리뷰도 확인하시겠습니까?(Y/N) : ");
+                    while (!answer.equals("Y") && !answer.equals("N")) {
+                        System.out.print("Y 또는 N 을 입력해주세요. \n식당의 별점과 리뷰도 확인하시겠습니까?(Y/N) : ");
                         answer = scanner.nextLine();
                     }
 
@@ -129,11 +127,11 @@ public class main {
                         currRestaurant.viewReview();
                         
                         // 리뷰 작성
-                        System.out.println("식당에 리뷰를 작성하시겠습니까? : (Y/N)");
+                        System.out.print("식당에 리뷰를 작성하시겠습니까?(Y/N) : ");
                         answer = scanner.nextLine();
 
                         // Y 또는 N 이외의 답이 들어오는 경우
-                        while (!answer.equals("Y") || !answer.equals("N")) {
+                        while (!answer.equals("Y") && !answer.equals("N")) {
                             System.out.println("Y 또는 N 을 입력해주세요. \n식당의 별점과 리뷰도 확인하시겠습니까?(Y/N) : ");
                             answer = scanner.nextLine();
                         }
@@ -144,27 +142,36 @@ public class main {
                         }
                     }
 
+                    // 맛집 리스트 등록
+
+                    System.out.print("내 맛집 리스트에 등록하시겠습니까?(Y/N) : ");
+                    answer = scanner.nextLine();
+                    
+                    // Y 또는 N 이외의 답이 들어오는 경우
+                    while (!answer.equals("Y") && !answer.equals("N")) {
+                        System.out.print("Y 또는 N 을 입력해주세요. \n내 맛집 리스트에 등록하시겠습니까?(Y/N) : ");
+                        answer = scanner.nextLine();
+                    }
+
+                    if (answer.equals("Y")) {
+                        currentUser.addRestaurant(currRestaurant);
+                        currentUser.viewFavoriteList();
+                    }
                     
                 }
                 else {
                     // 식당 존재 X
-                    System.out.print("없는 식당입니다.\n");
+                    System.out.println("\n-------- 없는 식당입니다. --------");
                 }
             }
-
-            
-
 
             // Use Case 10 : 식당 업체 등록
 
             // Use Case 11 : 식당 정보 수정 & 삭제
 
-            // Case : 
-            else if (true) {
-                
+            else {
+                System.out.println("\n---------- 정해진 동작을 입력해주세요 ---------- \n");
             }
-
-
         }
     }
 }
