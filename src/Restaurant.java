@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Restaurant {
 
@@ -21,6 +22,7 @@ public class Restaurant {
     }
        
     public void viewInfo() { //식당의 정보 보기 메소드
+        System.out.println("\n---------- 식당 정보 ----------\n");
         System.out.println("식당이름: "+ name);
         System.out.println("주소: "+ address);
         System.out.println("전화번호: "+ phoneNumber);
@@ -34,9 +36,14 @@ public class Restaurant {
                 System.out.println(" - "+menuList.get(i).food );
             }
         }
+
+        System.out.println("\n--------------------\n");
     }
 
     public void viewReview() { //식당리뷰들 보기 메소드
+
+        System.out.println("\n---------- 리뷰 -----------\n");
+
         if (reviews.isEmpty()) { //reviews리스트가 비어있어서 리뷰가 없을때
             System.out.println("리뷰가 없습니다.");
         }else{ //리뷰리스트를 순회하며 식당에 대한 리뷰들 출력/ 별점, 리뷰 순서로
@@ -44,10 +51,22 @@ public class Restaurant {
                 System.out.println("별점: " + reviews.get(i).starRating +" 리뷰: "+ reviews.get(i).review);   /*별점, 리뷰 출력 */
             }
         }
+
+        System.out.println("\n--------------------\n");
     }
 
-    public void writeReview(float starRating, String comment) {
-        Review review = new Review(starRating, comment);
+    public void writeReview() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("별점을 입력해주세요 : ");
+        float rating = Float.parseFloat(scanner.nextLine());
+
+        System.out.print("리뷰를 작성해주세요 : ");
+        String comment = scanner.nextLine();
+
+
+        Review review = new Review(rating, comment);
         this.reviews.add(review);
     }
 

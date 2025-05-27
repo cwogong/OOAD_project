@@ -105,22 +105,34 @@ public class main {
                 if (currRestaurant != null) {
                     // 식당 발견
                     currRestaurant.viewInfo();
-                    System.out.println("식당의 별점과 리뷰도 확인하시겠습니까? : (Y/N)");
+
+                    // 리뷰 보기
+                    System.out.println("식당의 별점과 리뷰도 확인하시겠습니까?(Y/N) : ");
                     String answer = scanner.nextLine();
+                    
+                    // Y 또는 N 이외의 답이 들어오는 경우
+                    while (!answer.equals("Y") || !answer.equals("N")) {
+                        System.out.println("Y 또는 N 을 입력해주세요. \n식당의 별점과 리뷰도 확인하시겠습니까?(Y/N) : ");
+                        answer = scanner.nextLine();
+                    }
+
                     if(answer.equals("Y")){
+                        // 리뷰 보기
                         currRestaurant.viewReview();
                         
+                        // 리뷰 작성
                         System.out.println("식당에 리뷰를 작성하시겠습니까? : (Y/N)");
                         answer = scanner.nextLine();
+
+                        // Y 또는 N 이외의 답이 들어오는 경우
+                        while (!answer.equals("Y") || !answer.equals("N")) {
+                            System.out.println("Y 또는 N 을 입력해주세요. \n식당의 별점과 리뷰도 확인하시겠습니까?(Y/N) : ");
+                            answer = scanner.nextLine();
+                        }
+
                         if(answer.equals("Y")){
-    
-                            System.out.print("별점을 입력해주세요 : ");
-                            float rating = Float.parseFloat(scanner.nextLine());
-
-                            System.out.print("리뷰를 작성해주세요 : ");
-                            String comment = scanner.nextLine();
-
-                            currRestaurant.writeReview(rating, comment);
+                            // 리뷰 작성
+                            currRestaurant.writeReview();
                         }
                     }
 

@@ -54,7 +54,7 @@ public class ClientUserList {
         System.out.print("address : ");
         String add_ = scanner.nextLine();
 
-        System.out.println();
+        System.out.println("\n--------------------");
         
         // 이미 존재하는 아이디인지 확인
         if (this.isUsableID(id_)) {
@@ -81,7 +81,7 @@ public class ClientUserList {
         System.out.print("pw : ");
         String pw_ = scanner.nextLine();
 
-        System.out.println();
+        System.out.println("\n--------------------");
 
         ClientUser currentUser = this.findUser(id_);
         if (currentUser != null && currentUser.getPW().equals(pw_)) {
