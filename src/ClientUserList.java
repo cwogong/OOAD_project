@@ -44,7 +44,7 @@ public class ClientUserList {
         Scanner scanner = new Scanner(System.in);
 
         // 회원가입 창
-        System.out.println("\n\n\n---------- 회원가입 ----------\n");
+        System.out.println("\n---------- 회원가입 ----------\n");
 
         // id, password 입력 받음
         System.out.print("id : ");
@@ -74,7 +74,7 @@ public class ClientUserList {
         Scanner scanner = new Scanner(System.in);
         
         // 로그인 창
-        System.out.println("\n\n\n---------- 로그인 ----------\n");
+        System.out.println("\n---------- 로그인 ----------\n");
 
         System.out.print("id : ");
         String id_ = scanner.nextLine();
