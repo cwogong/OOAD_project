@@ -53,11 +53,12 @@ public class main {
             if (type.equals("sign")) {
                 if (userList.signIn()) {    
                     // 회원가입 성공
-                    userList.print();
+                    // userList.print();
+                    System.out.println("\n---------- 정상적으로 가입되었습니다! ---------\n");
                 } 
                 else {      
                     // 회원가입 실패
-                    System.out.println("이미 존재하는 아이디입니다.");
+                    System.out.println("\n---------- 이미 존재하는 아이디입니다. ----------\n");
                 }
 
                 System.out.println("\n----------------------------");
