@@ -1,6 +1,5 @@
 
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
 /**#############레스토랑 고유 id 추가할것
  * 
@@ -19,13 +18,13 @@ public class RestaurantUser extends User {
 
     
     public void upload(RestaurantList restaurants) {                               /*식당정보등록(메뉴는 restaurant 클래스에 포함)*/
-        String name;
+        String restaurantName;
         String address;
         String phoneNumber;
         String category;
 
         System.out.println("식당이름: ");
-        name = sc.nextLine();
+        restaurantName = sc.nextLine();
         System.out.println("주소: ");
         address = sc.nextLine();
         System.out.println("전화번호: ");
@@ -35,7 +34,7 @@ public class RestaurantUser extends User {
 
 
         myRestaurant = new Restaurant(name, address, phoneNumber,category);
-        restaurants.add(myRestaurant);   /*식당리스트에 추가됨 */
+        restaurants.addRestaurant(myRestaurant);   /*식당리스트에 추가됨 */
         System.out.println("식당 등록 완료!");
     }
 
@@ -45,7 +44,6 @@ public class RestaurantUser extends User {
     public void updateInfo() {                                           /*식당정보 수정 */
         if (myRestaurant == null) {
             System.out.println("아직 등록된 식당이 없습니다.");
-            return;
         }
         else{
             System.out.print("새 이름: ");
