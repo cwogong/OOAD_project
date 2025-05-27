@@ -85,14 +85,10 @@ public class main {
             // 로그아웃
             else if (type.equals("logout")) {
                 System.out.println("\n----------------------------");
-                currentUser = null;
+                currentUser = null;         // 로그인된 회원을 없앰
                 System.out.println("로그아웃 되었습니다.");
                 System.out.println("\n----------------------------");
             }
-
-            // Use Case 3 : 내 정보 관리 -> 추후 구현 예정
-
-            // Use Case 5, 6 : 검색하기, 필터 적용 -> 추후 구현 예정
 
             // Use Case 7 : 맛집 리스트 보기
             else if (type.equals("viewList")) {
@@ -103,7 +99,7 @@ public class main {
                 currentUser.viewFavoriteList();
             }
 
-            // Use Case 9, 12, 4 : 식당 정보 보기 + 별점, 리뷰 보기 -> 별점, 리뷰 작성 + Use Case 8 : 맛집 리스트 등록하기
+            // Use Case 9 : 식당 정보 보기
             else if (type.equals("view")) {
 
                 if (currentUser == null) {
@@ -114,12 +110,13 @@ public class main {
                 System.out.print("식당 이름 입력 : ");
                 String rest = scanner.nextLine();
 
+                // Restaurant List 에서 입력된 식당 검색
                 Restaurant currRestaurant = restaurantList.findRestaurant(rest);
                 if (currRestaurant != null) {
-                    // 식당 발견
+                    // 식당 발견 -> 식당 정보 출력
                     currRestaurant.viewInfo();
 
-                    // 리뷰 보기
+                    // Use Case 12 :  별점, 리뷰 보기
                     System.out.print("식당의 별점과 리뷰도 확인하시겠습니까?(Y/N) : ");
                     String answer = scanner.nextLine();
                     
