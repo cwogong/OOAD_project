@@ -10,16 +10,26 @@ public class main {
 
 
         /*      임의의 식당 삽입         */
-        
-        restaurantList.addRestaurant(new Restaurant("rest1", "서울시 성북구", "02-1111-1111", "한식"));
-        restaurantList.addRestaurant(new Restaurant("rest2", "서울시 동대문구", "02-2222-2222", "중식"));
-        restaurantList.addRestaurant(new Restaurant("rest3", "서울시 성동구", "02-3333-3333", "일식"));
+        Restaurant rest1 = new Restaurant("rest1", "서울시 성북구", "02-1111-1111", "한식");
+        rest1.addMenu(new Menu("비빔밥", 8000));
+
+        Restaurant rest2 = new Restaurant("rest2", "서울시 동대문구", "02-2222-2222", "중식");
+        rest2.addMenu(new Menu("짜장면", 5000));
+        rest2.addMenu(new Menu("짬뽕", 6000));
+
+        Restaurant rest3 = new Restaurant("rest3", "서울시 성동구", "02-3333-3333", "일식");
+        rest3.addMenu(new Menu("초밥", 10000));
+
+        restaurantList.addRestaurant(rest1);
+        restaurantList.addRestaurant(rest2);
+        restaurantList.addRestaurant(rest3);
         
         /*      임의의 식당 삽입        */
 
         /*      임의의 회원 삽입        */
 
         userList.appendUser(new ClientUser("1111", "1111", "서울시"));
+        userList.appendUser(new ClientUser("2222", "2222", "서울시"));
 
         /*      임의의 회원 삽입        */
 
