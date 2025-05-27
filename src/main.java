@@ -21,6 +21,8 @@ public class main {
 
         userList.appendUser(new ClientUser("1111", "1111", "서울시"));
 
+        /*      임의의 회원 삽입        */
+
         while (true) {
             String type;
 
@@ -61,15 +63,19 @@ public class main {
 
             // Use Case 7 : 맛집 리스트 보기
             else if (type.equals("viewList")) {
-                // if (currentUser == null) {
-                //     System.out.print("로그인을 먼저 해 주세요");
-                //     continue;
-                // }
+                if (currentUser == null) {
+                    System.out.print("로그인을 먼저 해 주세요");
+                    continue;
+                }
                 currentUser.viewFavoriteList();
             }
 
             // Use Case 8 : 맛집 리스트 등록
             else if (type.equals("8")) {
+                if (currentUser == null) {
+                    System.out.print("로그인을 먼저 해 주세요");
+                    continue;
+                }
                 currentUser.addRestaurant(restaurantList.findRestaurant("rest1"));
                 //currentUser.viewFavoriteList();
             }
