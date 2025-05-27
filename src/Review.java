@@ -5,9 +5,9 @@ public class Review {
     public float starRating;
     public String review;
 
-    public Review(float starRating, String review ) {
+    public Review(float starRating, String comment) {
         this.starRating = starRating;
-        this.review = review;
+        this.review = comment;
     }
 
     // 별점 입력

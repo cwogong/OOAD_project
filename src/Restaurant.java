@@ -1,9 +1,9 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class Restaurant {
 
-    private ArrayList<Menu> menuList; //메뉴들 리스트
-    private ArrayList<Review> reviews; //리뷰들 리스트
+    public ArrayList<Menu> menuList; //메뉴들 리스트
+    public ArrayList<Review> reviews; //리뷰들 리스트
 
     public String name;
     public String address;
@@ -19,8 +19,7 @@ public class Restaurant {
         this.menuList = new ArrayList<>();              /*메뉴랑 리뷰 리스트 생성 */ 
         this.reviews = new ArrayList<>();
     }
-    
-    
+       
     public void viewInfo() { //식당의 정보 보기 메소드
         System.out.println("식당이름: "+ name);
         System.out.println("주소: "+ address);
@@ -37,8 +36,6 @@ public class Restaurant {
         }
     }
 
-
-
     public void viewReview() { //식당리뷰들 보기 메소드
         if (reviews.isEmpty()) { //reviews리스트가 비어있어서 리뷰가 없을때
             System.out.println("리뷰가 없습니다.");
@@ -47,6 +44,11 @@ public class Restaurant {
                 System.out.println("별점: " + reviews.get(i).starRating +" 리뷰: "+ reviews.get(i).review);   /*별점, 리뷰 출력 */
             }
         }
+    }
+
+    public void writeReview(float starRating, String comment) {
+        Review review = new Review(starRating, comment);
+        this.reviews.add(review);
     }
 
     public void addMenu(Menu m) {

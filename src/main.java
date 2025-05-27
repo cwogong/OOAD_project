@@ -99,7 +99,22 @@ public class main {
                     String answer = scanner.nextLine();
                     if(answer.equals("Y")){
                         currRestaurant.viewReview();
+                        
+                        System.out.println("식당에 리뷰를 작성하시겠습니까? : (Y/N)");
+                        answer = scanner.nextLine();
+                        if(answer.equals("Y")){
+    
+                            System.out.print("별점을 입력해주세요 : ");
+                            float rating = Float.parseFloat(scanner.nextLine());
+
+                            System.out.print("리뷰를 작성해주세요 : ");
+                            String comment = scanner.nextLine();
+
+                            currRestaurant.writeReview(rating, comment);
+                        }
                     }
+
+                    
                 }
                 else {
                     // 식당 존재 X
