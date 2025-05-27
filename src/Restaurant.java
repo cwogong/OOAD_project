@@ -40,9 +40,9 @@ public class Restaurant {
 
 
     public void viewReview() { //식당리뷰들 보기 메소드
-        if (reviews.isEmpty()) {
+        if (reviews.isEmpty()) { //reviews리스트가 비어있어서 리뷰가 없을때
             System.out.println("리뷰가 없습니다.");
-        }else{
+        }else{ //리뷰리스트를 순회하며 식당에 대한 리뷰들 출력/ 별점, 리뷰 순서로
             for(int i=0; i<reviews.size(); i++){
                 System.out.println("별점: " + reviews.get(i).starRating +" 리뷰: "+ reviews.get(i).review);   /*별점, 리뷰 출력 */
             }

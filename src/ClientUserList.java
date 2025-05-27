@@ -43,6 +43,9 @@ public class ClientUserList {
 
         Scanner scanner = new Scanner(System.in);
 
+        // 회원가입 창
+        System.out.println("\n\n\n---------- 회원가입 ----------\n");
+
         // id, password 입력 받음
         System.out.print("id : ");
         String id_ = scanner.nextLine();
@@ -51,6 +54,7 @@ public class ClientUserList {
         System.out.print("address : ");
         String add_ = scanner.nextLine();
 
+        System.out.println();
         
         // 이미 존재하는 아이디인지 확인
         if (this.isUsableID(id_)) {
@@ -68,11 +72,16 @@ public class ClientUserList {
     public ClientUser login() {
 
         Scanner scanner = new Scanner(System.in);
+        
+        // 로그인 창
+        System.out.println("\n\n\n---------- 로그인 ----------\n");
 
         System.out.print("id : ");
         String id_ = scanner.nextLine();
         System.out.print("pw : ");
         String pw_ = scanner.nextLine();
+
+        System.out.println();
 
         ClientUser currentUser = this.findUser(id_);
         if (currentUser != null && currentUser.getPW().equals(pw_)) {
