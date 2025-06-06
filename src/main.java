@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -12,23 +13,33 @@ public class main {
         /*      임의의 식당 삽입         */
         //////////////////////////////////
 
-        Restaurant rest1 = new Restaurant("rest1", "서울시 성북구", "02-1111-1111", "한식");
+        Restaurant rest1 = new Restaurant("rest1", "서울시 성북구", "02-1111-1111", "Korean");
         rest1.addMenu(new Menu("비빔밥", 8000));
 
-        Restaurant rest2 = new Restaurant("rest2", "서울시 동대문구", "02-2222-2222", "중식");
+        Restaurant rest2 = new Restaurant("rest2", "서울시 동대문구", "02-2222-2222", "Chinese");
         rest2.addMenu(new Menu("짜장면", 5000));
         rest2.addMenu(new Menu("짬뽕", 6000));
 
-        Restaurant rest3 = new Restaurant("rest3", "서울시 성동구", "02-3333-3333", "일식");
+        Restaurant rest3 = new Restaurant("rest3", "서울시 성동구", "02-3333-3333", "Japanese");
         rest3.addMenu(new Menu("초밥", 10000));
+
+        Restaurant rest4 = new Restaurant("rest4", "서울시 중랑구", "02-4444-4444", "Western");
+        rest4.addMenu(new Menu("스테이크", 15000));
 
         restaurantList.addRestaurant(rest1);
         restaurantList.addRestaurant(rest2);
         restaurantList.addRestaurant(rest3);
+        restaurantList.addRestaurant(rest4);
 
         /////////////////////////////////
         /*      임의의 식당 삽입        */
         /////////////////////////////////
+        
+        ArrayList<String> Categories = new ArrayList<>();           // 식당의 카테고리 종류
+        Categories.add("Korean");
+        Categories.add("Chinese");
+        Categories.add("Japanese");
+        Categories.add("Western");
 
         
         /////////////////////////////////
@@ -174,7 +185,73 @@ public class main {
 
             // Use Case 3 : 내 정보 관리
 
-            // Use Case 5 : 검색 + Use Case 6 : 필터
+            // Use Case 5 : 검색
+            else if (type.equals("search")) {
+                if (currentUser == null) {
+                    System.out.println("-------- 로그인을 먼저 해 주세요 --------");
+                    continue;
+                }
+
+                RestaurantList searchList = new RestaurantList();
+
+                System.out.print("검색 (식당 이름 검색) : ");
+                String search = scanner.nextLine();
+
+                for (Restaurant r : restaurantList.restaurantList) {
+                    if (r.getName().contains(search)) {
+                        searchList.addRestaurant(r);
+                        System.out.println(r.getName());
+                    }
+                }
+
+                if (searchList.isEmpty()) {
+                    System.out.print("해당 결과가 없습니다.");
+                }
+
+                //searchList.view();
+            }
+
+            // Use Case 6 : 필터
+            else if (type.equals("filter")) {
+                if (currentUser == null) {
+                    System.out.println("-------- 로그인을 먼저 해 주세요 --------");
+                    continue;
+                }
+
+                RestaurantList filterList = new RestaurantList();
+
+                System.out.print("필터 내용 ( ");
+                for (String c : Categories) {
+                    System.out.print(c + ", ");
+                }
+                System.out.print("\b\b) : ");
+                String search = scanner.nextLine();
+
+                while (!Categories.contains(search)) {
+                    for (String c : Categories) {
+                        System.out.print(c + ", ");
+                    }
+                    System.out.println("\b\b 중에서 입력해주세요. ");
+
+                    System.out.print("필터 내용 ( ");
+                    for (String c : Categories) {
+                        System.out.print(c + ", ");
+                    }
+                    System.out.print("\b\b) : ");
+                        search = scanner.nextLine();
+                    }
+
+                for (Restaurant r : restaurantList.restaurantList) {
+                    if (r.getCategory().equals(search)) {
+                        filterList.addRestaurant(r);
+                        System.out.println("- " + r.getName());
+                    }
+                }
+
+                if (filterList.isEmpty()) {
+                    System.out.print("해당 결과가 없습니다.");
+                }
+            }
 
             else {
                 System.out.println("\n---------- 정해진 동작을 입력해주세요 ---------- \n");
