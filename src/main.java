@@ -5,7 +5,7 @@ public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ClientUser currentUser = null;                              // 현재 로그인된 회원
-        Restaurant currentRestUser = null;                          // 현재 로그인된 식당
+        RestaurantUser currentRestUser = null;                          // 현재 로그인된 식당
 
         ClientUserList userList = new ClientUserList();             // 회원가입된 Client User 들을 담는 Client List 객체
         RestaurantList restaurantList = new RestaurantList();       // 식당 등록된 Restaurant 들을 담는 Restaurant List 객체
@@ -182,12 +182,15 @@ public class main {
 
             // Use Case 10 : 식당 업체 등록
             else if (type.equals("upload")){
-                RestaurantUser restUser = new RestaurantUser("username");
-                restaurantList.addRestaurant();   /*식당리스트에 추가됨 */
+                //RestaurantUser restUser = new RestaurantUser("username");
+                restaurantList.addRestaurant(currentRestUser.create_restuarant());   /*식당리스트에 추가됨 */
                 System.out.println("식당업체 등록 완료!");
             }
 
             // Use Case 11 : 식당 정보 수정 & 삭제
+            else if(type.equals("update")){
+
+            }
 
             // Use Case 3 : 내 정보 관리
 
@@ -262,6 +265,8 @@ public class main {
             else {
                 System.out.println("\n---------- 정해진 동작을 입력해주세요 ---------- \n");
             }
+             scanner.close();
         }
+       
     }
 }
