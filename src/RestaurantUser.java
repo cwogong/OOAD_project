@@ -11,8 +11,15 @@ public class RestaurantUser extends User {
     public String name;
     public Restaurant myRestaurant;
     
-    public RestaurantUser(String name) {
+    public RestaurantUser(String id, String pw, String add, String name) {
+        super(id, pw, add);
         this.name = name;
+        this.myRestaurant = null;
+    }
+
+    public RestaurantUser(String id, String pw, String add) {
+        super(id, pw, add);
+        this.name = null;
         this.myRestaurant = null;
     }
 
@@ -32,7 +39,8 @@ public class RestaurantUser extends User {
         System.out.println("카테고리(한식, 양식, ...): ");
         category = sc.nextLine();
 
-        Restaurant rest = new Restaurant(restaurantName, address, phoneNumber, category)
+        Restaurant rest = new Restaurant(restaurantName, address, phoneNumber, category);
+        this.myRestaurant = rest;
 
         return rest;
     }
