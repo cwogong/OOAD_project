@@ -5,11 +5,7 @@ public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ClientUser currentUser = null;                              // 현재 로그인된 회원
-<<<<<<< HEAD
-        RestaurantUser currentRestUser = null;                          // 현재 로그인된 식당
-=======
         RestaurantUser currentRestUser = null;                      // 현재 로그인된 식당
->>>>>>> fd63d1ceef582a9605637f3050c0fe57cf3e2d56
 
         ClientUserList userList = new ClientUserList();             // 회원가입된 Client User 들을 담는 Client List 객체
         RestaurantUserList restUserList = new RestaurantUserList(); // 회원가입된 Restaurent User 들을 담는 Client List 객체
