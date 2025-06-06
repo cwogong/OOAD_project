@@ -99,7 +99,7 @@ public class main {
                 currentUser.viewFavoriteList();
             }
 
-            // Use Case 9 : 식당 정보 보기
+            // Use Case 9 : 식당 정보 보기 + Use Case 12, 4, 8
             else if (type.equals("view")) {
 
                 if (currentUser == null) {
@@ -171,6 +171,10 @@ public class main {
             // Use Case 10 : 식당 업체 등록
 
             // Use Case 11 : 식당 정보 수정 & 삭제
+
+            // Use Case 3 : 내 정보 관리
+
+            // Use Case 5 : 검색 + Use Case 6 : 필터
 
             else {
                 System.out.println("\n---------- 정해진 동작을 입력해주세요 ---------- \n");

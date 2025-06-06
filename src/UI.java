@@ -1,73 +1,82 @@
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-
-// import javax.swing.*;
-// import java.awt.*;
-// import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class UI {
-    JFrame frame;
-    JPanel mainPanel;
-
-    public UI() {
-        frame = new JFrame("main");
+    public static void main(String[] args) {
+        // JFrame 생성
+        JFrame frame = new JFrame("Panel Switch Example");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 800);
-        
-        loginUI();
+        frame.setSize(400, 300);
 
+        // 패널 생성
+        JPanel loginPanel = createLoginPanel(frame);
+        JPanel mainPanel = createMainPanel(frame);
+
+        // 초기 패널 설정
+        frame.setContentPane(loginPanel);
         frame.setVisible(true);
     }
 
-    private void mainUI() {
+    // 로그인 패널 생성
+    private static JPanel createLoginPanel(JFrame frame) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
+        JLabel userLabel = new JLabel("아이디:");
+        JTextField userField = new JTextField(20);
+        JLabel passLabel = new JLabel("비밀번호:");
+        JPasswordField passField = new JPasswordField(20);
+        JButton loginButton = new JButton("로그인");
+
+        panel.add(userLabel);
+        panel.add(userField);
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+        panel.add(passLabel);
+        panel.add(passField);
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        panel.add(loginButton);
+
+        // 로그인 버튼 클릭 시 메인 화면으로 전환
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(createMainPanel(frame));
+                frame.revalidate(); // 레이아웃 재검증
+                frame.repaint();    // 화면 갱신
+            }
+        });
+
+        return panel;
     }
 
-    private void loginUI() {
-        mainPanel = new JPanel();
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(200, 30, 200, 30));
-        mainPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+    // 메인 화면 패널 생성
+    private static JPanel createMainPanel(JFrame frame) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        JPanel idPanel = new JPanel();
-        idPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        JPanel pwPanel = new JPanel();
-        pwPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        JLabel welcomeLabel = new JLabel("환영합니다!");
+        welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JButton logoutButton = new JButton("로그아웃");
+        logoutButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JTextField idField = new JTextField(20);
-        JPasswordField pwField = new JPasswordField(20);
-        JButton backBtn = new JButton("뒤로 가기");
+        panel.add(welcomeLabel);
+        panel.add(Box.createRigidArea(new Dimension(0, 20)));
+        panel.add(logoutButton);
 
-        idPanel.add(new JLabel("ID:"));
-        idPanel.add(idField);
-        
-        pwPanel.add(new JLabel("PW:"));
-        pwPanel.add(pwField);
+        // 로그아웃 버튼 클릭 시 로그인 화면으로 전환
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(createLoginPanel(frame));
+                frame.revalidate(); // 레이아웃 재검증
+                frame.repaint();    // 화면 갱신
+            }
+        });
 
-        mainPanel.add(new JPanel());
-        mainPanel.add(idPanel);
-        mainPanel.add(Box.createRigidArea(new Dimension(0, 5)));
-        mainPanel.add(pwPanel);
-        mainPanel.add(backBtn);
-        mainPanel.add(new JPanel());
-
-        frame.setContentPane(mainPanel);
-        frame.revalidate();
-        frame.repaint();
-    }
-    
-    public static void main(String[] args) {
-        new UI();
+        return panel;
     }
 }
