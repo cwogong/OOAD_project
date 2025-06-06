@@ -1,5 +1,5 @@
 // import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
 
 
 // 삽입, 삭제(RES ID 필요), 수정(필요한가?), 조회
@@ -7,6 +7,10 @@ public class RestaurantList {
     // 식당 리스트 생성
     public ArrayList<Restaurant> restaurantList = new ArrayList<>();
     
+    public boolean isEmpty() {
+        return restaurantList.isEmpty();
+    }
+
     public void addRestaurant(Restaurant r) {    
         // 식당추가기능
         restaurantList.add(r);

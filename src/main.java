@@ -171,8 +171,8 @@ public class main {
             
             // Use Case 10 : 식당 업체 등록
             else if (type.equals("upload")){
-                
-                restaurantList.addRestaurant(RestaurantUser.create_restuarant());   /*식당리스트에 추가됨 */
+                RestaurantUser restUser = new RestaurantUser("username");
+                restaurantList.addRestaurant();   /*식당리스트에 추가됨 */
                 System.out.println("식당업체 등록 완료!");
             }
             // Use Case 11 : 식당 정보 수정 & 삭제

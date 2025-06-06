@@ -32,10 +32,9 @@ public class RestaurantUser extends User {
         System.out.println("카테고리(한식, 양식, ...): ");
         category = sc.nextLine();
 
+        Restaurant rest = new Restaurant(restaurantName, address, phoneNumber, category)
 
-        myRestaurant = new Restaurant(name, address, phoneNumber,category);
-        restaurants.addRestaurant(myRestaurant);   /*식당리스트에 추가됨 */
-        System.out.println("식당 등록 완료!");
+        return rest;
     }
 
     /**
