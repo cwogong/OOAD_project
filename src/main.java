@@ -5,7 +5,7 @@ public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ClientUser currentUser = null;                              // 현재 로그인된 회원
-        RestaurantUser currentRestUser = null;                      // 현재 로그인된 식당
+        RestaurantUser currentRestUser = null;                          // 현재 로그인된 식당
 
         ClientUserList userList = new ClientUserList();             // 회원가입된 Client User 들을 담는 Client List 객체
         RestaurantUserList restUserList = new RestaurantUserList(); // 회원가입된 Restaurent User 들을 담는 Client List 객체
@@ -228,7 +228,30 @@ public class main {
             }
 
             // Use Case 3 : 내 정보 관리
+            // Use Case 3 : 내정보관리
 
+        else if (type.equals("changeInfo")) {
+
+        while (currentUser == null) { // 로그인 실패시 성공할 때까지 계속 로그인 시도
+                currentUser = userList.login();
+            }
+                // 로그인 성공
+
+                System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다. 새 정보를 입력하세요.");
+
+                String newNickname;
+                String newAge;
+                String newAddress;
+
+                System.out.print("닉네임을 작성해주세요 : ");
+                newNickname = scanner.nextLine();
+                System.out.print("나이를 작성해주세요 : ");
+                newAge = scanner.nextLine();
+                System.out.print("주소를 작성해주세요 : ");
+                newAddress = scanner.nextLine();
+
+                clientUser.manageInfo(newNickname, newAge, newAddress);
+            }
             // Use Case 5 : 검색
             else if (type.equals("search")) {
                 if (currentUser == null) {
