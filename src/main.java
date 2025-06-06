@@ -5,9 +5,10 @@ public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ClientUser currentUser = null;                              // 현재 로그인된 회원
-        RestaurantUser currentRestUser = null;                          // 현재 로그인된 식당
+        RestaurantUser currentRestUser = null;                      // 현재 로그인된 식당
 
         ClientUserList userList = new ClientUserList();             // 회원가입된 Client User 들을 담는 Client List 객체
+        RestaurantUserList restUserList = new RestaurantUserList(); // 회원가입된 Restaurent User 들을 담는 Client List 객체
         RestaurantList restaurantList = new RestaurantList();       // 식당 등록된 Restaurant 들을 담는 Restaurant List 객체
 
         //////////////////////////////////
@@ -72,26 +73,60 @@ public class main {
 
             // Use Case 1 : 회원가입
             if (type.equals("sign")) {
-                if (userList.signIn()) {        // 회원가입 성공
-                    System.out.println("\n---------- 정상적으로 가입되었습니다! ---------\n");
-                } 
-                else {                          // 회원가입 실패
-                    System.out.println("\n---------- 이미 존재하는 아이디입니다. ----------\n");
-                }
 
-                System.out.println("\n----------------------------");
+                System.out.print("식당 로그인이면 1, 일반 유저면 0 :");
+                String is_rest = scanner.nextLine();
+            
+                if (is_rest.equals('0')){
+                    if (userList.signIn()) {        // 회원가입 성공
+                        System.out.println("\n---------- 정상적으로 가입되었습니다! ---------\n");
+                    } 
+                    else {                          // 회원가입 실패
+                        System.out.println("\n---------- 이미 존재하는 아이디입니다. ----------\n");
+                    }
+
+                    System.out.println("\n----------------------------");
+                }
+                else {
+                    if (restUserList.signIn()) {        // 회원가입 성공
+                        System.out.println("\n---------- 정상적으로 가입되었습니다! ---------\n");
+                    } 
+                    else {                          // 회원가입 실패
+                        System.out.println("\n---------- 이미 존재하는 아이디입니다. ----------\n");
+                    }
+
+                    System.out.println("\n----------------------------");
+                }
             }
 
             // Use Case 2 : 로그인
             else if (type.equals("login")) {
-                while (currentUser == null) {    // 로그인 실패시 성공할 때까지 계속 로그인 시도
-                    currentUser = userList.login();
+                System.out.print("식당 로그인이면 1, 일반 유저면 0 :");
+                String is_rest = scanner.nextLine();
+            
+                if (is_rest.equals('0')){
+                    while (currentUser == null) {    // 로그인 실패시 성공할 때까지 계속 로그인 시도
+                        currentUser = userList.login();
+                    }
+
+                    // 로그인 성공
+                    System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다.");
+
+                    System.out.println("\n----------------------------");
+                }
+                else {
+                    while (currentRestUser == null) {
+                        currentRestUser = restUserList.login();
+                    }
+
+                    // 로그인 성공
+                    System.out.println("로그인 성공! : " + currentRestUser.getID() + "님, 환영합니다.");
+
+                    System.out.println("\n----------------------------");
                 }
                 
-                // 로그인 성공
-                System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다.");
-
-                System.out.println("\n----------------------------");
+                
+                
             }
 
             // 로그아웃
