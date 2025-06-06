@@ -17,7 +17,7 @@ public class RestaurantUser extends User {
     }
 
     
-    public void upload(RestaurantList restaurants) {                               /*식당정보등록(메뉴는 restaurant 클래스에 포함)*/
+    public Restaurant create_restuarant() {                               /*식당정보git 등록(메뉴는 restaurant 클래스에 포함)*/
         String restaurantName;
         String address;
         String phoneNumber;

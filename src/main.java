@@ -168,13 +168,21 @@ public class main {
                 }
             }
 
+            
             // Use Case 10 : 식당 업체 등록
-
+            else if (type.equals("upload")){
+                
+                restaurantList.addRestaurant(RestaurantUser.create_restuarant());   /*식당리스트에 추가됨 */
+                System.out.println("식당업체 등록 완료!");
+            }
             // Use Case 11 : 식당 정보 수정 & 삭제
+            //석준
 
             // Use Case 3 : 내 정보 관리
+            //승일
 
             // Use Case 5 : 검색 + Use Case 6 : 필터
+            //찬우
 
             else {
                 System.out.println("\n---------- 정해진 동작을 입력해주세요 ---------- \n");
