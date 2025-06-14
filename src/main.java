@@ -245,7 +245,7 @@ public class main {
                 System.out.print("닉네임을 작성해주세요 : ");
                 newNickname = scanner.nextLine();
                 System.out.print("나이를 작성해주세요 : ");
-                newAge = Integer.parseInt(scanner.nextLine());
+                newAge = scanner.nextInt();
                 System.out.print("주소를 작성해주세요 : ");
                 newAddress = scanner.nextLine();
 
