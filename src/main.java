@@ -228,7 +228,6 @@ public class main {
             }
 
             // Use Case 3 : 내 정보 관리
-            // Use Case 3 : 내정보관리
 
         else if (type.equals("changeInfo")) {
 
@@ -240,17 +239,17 @@ public class main {
                 System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다. 새 정보를 입력하세요.");
 
                 String newNickname;
-                String newAge;
+                int newAge;
                 String newAddress;
 
                 System.out.print("닉네임을 작성해주세요 : ");
                 newNickname = scanner.nextLine();
                 System.out.print("나이를 작성해주세요 : ");
-                newAge = scanner.nextLine();
+                newAge = Integer.parseInt(scanner.nextLine());
                 System.out.print("주소를 작성해주세요 : ");
                 newAddress = scanner.nextLine();
 
-                clientUser.manageInfo(newNickname, newAge, newAddress);
+                currentUser.manageInfo(newNickname, newAge, newAddress);
             }
             // Use Case 5 : 검색
             else if (type.equals("search")) {
