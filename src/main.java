@@ -224,6 +224,25 @@ public class main {
 
             // Use Case 11 : 식당 정보 수정 & 삭제
             else if(type.equals("update")){
+                //정보를 수정하거나 삭제할 식당의 이름을 입력
+                System.out.print("식당 이름 입력 : ");
+                String rest = scanner.nextLine();
+
+                //수정할지 삭제할지를 고르는 로직
+                System.out.print("수정은 1, 삭제는 0 을 입력하세요. : ");
+                int in = scanner.nextInt();
+
+                while (in != 1 && in != 0) { // 0이나 1을 입력 받을때까지 반복, 올바르지 않은 입력이면 메시지 출력
+                    System.out.print("유효한 입력이 아입니다. 올바른 입력을 해주세요.");
+                    in = scanner.nextInt();
+                }
+
+                if(in == 1){
+                    //수정로직
+                }
+                else if(in == 0){
+                    //삭제로직
+                }
 
             }
 
