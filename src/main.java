@@ -115,11 +115,7 @@ public class main {
                     //     System.out.println("\n----------------------------");
                 });
                 
-                }
-                
-                
-                
-            
+                }  
 
             // 로그아웃
             else if (type.equals("logout")) {
