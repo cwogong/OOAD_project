@@ -20,7 +20,8 @@ public class Restaurant {
         this.menuList = new ArrayList<>();              /*메뉴랑 리뷰 리스트 생성 */ 
         this.reviews = new ArrayList<>();
     }
-       
+
+           
     public void viewInfo() { //식당의 정보 보기 메소드
         System.out.println("\n---------- 식당 정보 ----------\n");
         System.out.println("식당이름: "+ name);
@@ -82,6 +83,14 @@ public class Restaurant {
 
     public String getName() {
         return this.name;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getPhoneNumber() {
+        return this.phoneNumber;
     }
     
     public String getCategory() {

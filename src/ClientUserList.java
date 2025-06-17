@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ClientUserList {
     // 유저 리스트
@@ -39,45 +38,31 @@ public class ClientUserList {
     }
 
     // 회원가입
-    public boolean signIn() {
+    public boolean signIn(String id_, String pw_, String pw2_, String add_) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        // 회원가입 창
-        System.out.println("\n---------- 회원가입 ----------\n");
-
-        // id, password 입력 받음
-        System.out.print("id : ");
-        String id_ = scanner.nextLine();
-        System.out.print("pw : ");
-        String pw_ = scanner.nextLine();
-        System.out.print("address : ");
-        String add_ = scanner.nextLine();
-        
         // 이미 존재하는 아이디인지 확인
         if (this.isUsableID(id_)) {
+            if (pw_.equals(pw2_)) {
+                return false;
+            }
             // 회원가입 성공
             ClientUser user = new ClientUser(id_, pw_, add_);   // nickname, age 추가 필요
             this.appendUser(user);
-            return true;
-        } else {
-            // 이미 같은 아이디가 존재하는 경우
-            return false;
+            if (pw_.equals(pw2_)) {
+                return true;
+            }
         }
+        // 같은 아이디가 있거나 비밀번호가 다른 경우
+        
+        return false;
     }
 
     // 로그인
-    public ClientUser login() {
-
-        Scanner scanner = new Scanner(System.in);
+    public ClientUser login(String id_, String pw_) {
         
         // 로그인 창
         System.out.println("\n---------- 로그인 ----------\n");
 
-        System.out.print("id : ");
-        String id_ = scanner.nextLine();
-        System.out.print("pw : ");
-        String pw_ = scanner.nextLine();
 
         ClientUser currentUser = this.findUser(id_);
         if (currentUser != null && currentUser.getPW().equals(pw_)) {

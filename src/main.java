@@ -101,33 +101,25 @@ public class main {
 
             // Use Case 2 : 로그인
             else if (type.equals("login")) {
-                System.out.print("식당 로그인이면 1, 일반 유저면 0 :");
-                String is_rest = scanner.nextLine();
+                LoginUI loginUI = new LoginUI();
+
+                loginUI.setLoginAction(() -> {
+                    String id = loginUI.getUserId();
+                    String pw = loginUI.getPassword();
+                    
+                
+                    // currentUser = userList.login(id, pw);
+                    //     // 로그인 성공
+                    //     System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다.");
+
+                    //     System.out.println("\n----------------------------");
+                });
+                
+                }
+                
+                
+                
             
-                if (is_rest.equals('0')){
-                    while (currentUser == null) {    // 로그인 실패시 성공할 때까지 계속 로그인 시도
-                        currentUser = userList.login();
-                    }
-
-                    // 로그인 성공
-                    System.out.println("로그인 성공! : " + currentUser.getID() + "님, 환영합니다.");
-
-                    System.out.println("\n----------------------------");
-                }
-                else {
-                    while (currentRestUser == null) {
-                        currentRestUser = restUserList.login();
-                    }
-
-                    // 로그인 성공
-                    System.out.println("로그인 성공! : " + currentRestUser.getID() + "님, 환영합니다.");
-
-                    System.out.println("\n----------------------------");
-                }
-                
-                
-                
-            }
 
             // 로그아웃
             else if (type.equals("logout")) {
@@ -224,6 +216,25 @@ public class main {
 
             // Use Case 11 : 식당 정보 수정 & 삭제
             else if(type.equals("update")){
+                //정보를 수정하거나 삭제할 식당의 이름을 입력
+                System.out.print("식당 이름 입력 : ");
+                String rest = scanner.nextLine();
+
+                //수정할지 삭제할지를 고르는 로직
+                System.out.print("수정은 1, 삭제는 0 을 입력하세요. : ");
+                int in = scanner.nextInt();
+
+                while (in != 1 && in != 0) { // 0이나 1을 입력 받을때까지 반복, 올바르지 않은 입력이면 메시지 출력
+                    System.out.print("유효한 입력이 아입니다. 올바른 입력을 해주세요.");
+                    in = scanner.nextInt();
+                }
+
+                if(in == 1){
+                    //수정로직
+                }
+                else if(in == 0){
+                    //삭제로직
+                }
 
             }
 
@@ -232,7 +243,7 @@ public class main {
         else if (type.equals("changeInfo")) {
 
         while (currentUser == null) { // 로그인 실패시 성공할 때까지 계속 로그인 시도
-                currentUser = userList.login();
+                //currentUser = userList.login();
             }
                 // 로그인 성공
 
@@ -322,7 +333,7 @@ public class main {
             else {
                 System.out.println("\n---------- 정해진 동작을 입력해주세요 ---------- \n");
             }
-             scanner.close();
+             //scanner.close();
         }
        
     }
