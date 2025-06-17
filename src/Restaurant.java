@@ -41,6 +41,10 @@ public class Restaurant {
         System.out.println("\n--------------------\n");
     }
 
+    public void getReview() {
+        return 
+    }
+
     public void viewReview() { //식당리뷰들 보기 메소드
 
         System.out.println("\n---------- 리뷰 -----------\n");
