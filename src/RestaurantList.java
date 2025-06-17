@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 
 // 삽입, 삭제(RES ID 필요), 수정(필요한가?), 조회
-public class RestaurantList {                                            
+public class RestaurantList {
     // 식당 리스트 생성
     public ArrayList<Restaurant> restaurantList = new ArrayList<>();
     
@@ -40,5 +40,15 @@ public class RestaurantList {
             }
         }
         return null;
+    }
+
+    public RestaurantList filterRestaurant(String categ) {
+        RestaurantList resList = new RestaurantList();
+        for (Restaurant restaurant : this.restaurantList) {
+            if (restaurant.getCategory().equals(categ)) {
+                resList.addRestaurant(restaurant);
+            }
+        }
+        return resList;
     }
 }

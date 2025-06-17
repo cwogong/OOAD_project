@@ -6,19 +6,19 @@ public class ClientUser extends User { //user 클래스를 상속받는 client u
 
     public String nickname; // 사용자의 닉네임
     public int age; // 사용자의 나이
-    public FavoriteList favoriteList;
+    public RestaurantList favoriteList;
 
 	
-    public ClientUser(String userID, String userPW, String address, String nickname, int age) { //생성자
+    public ClientUser(String userID, String userPW, String address, int age, String nickname) { //생성자
     	super(userID, userPW, address);
     	this.nickname = nickname;
     	this.age = age;
-        this.favoriteList = new FavoriteList();
+        this.favoriteList = new RestaurantList();
     }
 
     public ClientUser(String userID, String userPW, String address) { //생성자
     	super(userID, userPW, address);
-        this.favoriteList = new FavoriteList();
+        this.favoriteList = new RestaurantList();
     }
 
     // Getter
@@ -77,7 +77,7 @@ public class ClientUser extends User { //user 클래스를 상속받는 client u
 
     public void viewFavoriteList() { // 즐겨찾기 보기
     	System.out.println("\n---------- 내 맛집 리스트 ----------\n");
-    	for (Restaurant r : this.favoriteList.favoriteList) {
+    	for (Restaurant r : this.favoriteList.restaurantList) {
     		System.out.println(r.getName());
     	}
         System.out.println("----------------------------");
@@ -85,7 +85,7 @@ public class ClientUser extends User { //user 클래스를 상속받는 client u
 
 
     public void addRestaurant(Restaurant r) { // 즐겨찾기에 담기
-    	favoriteList.add(r);
+    	favoriteList.addRestaurant(r);
     	System.out.println(r.getName() + "이(가) 즐겨찾기에 추가되었습니다.");
     }
 

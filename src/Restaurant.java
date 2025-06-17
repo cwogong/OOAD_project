@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Restaurant {
 
@@ -41,44 +40,26 @@ public class Restaurant {
         System.out.println("\n--------------------\n");
     }
 
-    public void getReview() {
-        return 
-    }
-
-    public void viewReview() { //식당리뷰들 보기 메소드
-
-        System.out.println("\n---------- 리뷰 -----------\n");
-
-        if (reviews.isEmpty()) {        //reviews 가 비어있어서 리뷰가 없을때
-            System.out.println("리뷰가 없습니다.");
-        }else{                          //reviews 를 순회하며 별점, 리뷰 출력
-            for(int i=0; i<reviews.size(); i++){
-                System.out.println("별점: " + reviews.get(i).starRating +", 리뷰: "+ reviews.get(i).review);   /*별점, 리뷰 출력 */
-            }
+    public String viewReview() { //식당리뷰들 보기 메소드
+        String review = "";
+                          //reviews 를 순회하며 별점, 리뷰 출력
+        for(int i=0; i<reviews.size(); i++){
+            review += "별점 : " + reviews.get(i).starRating + ", 리뷰 : " + reviews.get(i).review + "\n";   /*별점, 리뷰 출력 */
         }
 
-        System.out.println("\n----------------------------\n");
+        if (review.equals("")) {
+            return "별점이 없습니다.";
+        }
+        return review;
     }
 
-    public void writeReview() {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("별점을 입력해주세요(0 ~ 5) : ");
-        float rating = Float.parseFloat(scanner.nextLine());
-        while (rating < 0 || rating > 5) {
-            System.out.print("0에서 5 사이의 값을 입력해주세요 : ");
-            rating = Float.parseFloat(scanner.nextLine());
+    public boolean writeReview(float rating, String comment) {
+        if (rating < 0 || rating > 5) {
+            return false;
         }
-
-        System.out.print("리뷰를 작성해주세요 : ");
-        String comment = scanner.nextLine();
-
-
         Review review = new Review(rating, comment);
         this.reviews.add(review);
-
-        System.out.println("\n----------------------------\n");
+        return true;
     }
 
     public void addMenu(Menu m) {

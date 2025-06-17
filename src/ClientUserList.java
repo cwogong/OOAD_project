@@ -38,21 +38,23 @@ public class ClientUserList {
     }
 
     // 회원가입
-    public boolean signIn(String id_, String pw_, String pw2_, String add_) {
+    public boolean signIn(String id_, String pw_, String pw2_, String add_, int age_, String nickname_) {
 
         // 이미 존재하는 아이디인지 확인
         if (this.isUsableID(id_)) {
-            if (pw_.equals(pw2_)) {
+            if (!pw_.equals(pw2_)) {
+                System.out.print("asdf");
                 return false;
             }
             // 회원가입 성공
-            ClientUser user = new ClientUser(id_, pw_, add_);   // nickname, age 추가 필요
+            ClientUser user = new ClientUser(id_, pw_, add_, age_, nickname_);
             this.appendUser(user);
             if (pw_.equals(pw2_)) {
                 return true;
             }
         }
         // 같은 아이디가 있거나 비밀번호가 다른 경우
+                System.out.print("1234");
         
         return false;
     }
